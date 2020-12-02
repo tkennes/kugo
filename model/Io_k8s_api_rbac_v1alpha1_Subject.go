@@ -1,0 +1,9 @@
+package kugo_model
+
+type Io_k8s_api_rbac_v1alpha1_Subject struct {
+	ApiVersion string `json:"apiVersion,omitempty"`
+	Kind       string `json:"kind"`
+	Name       string `json:"name"`
+	Namespace  string `json:"namespace,omitempty"`
+}
+
