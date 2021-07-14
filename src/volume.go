@@ -60,7 +60,7 @@ func GetAndShowVolumes(namespace string) (res [][]string) {
 					reference, err = findSecretReference(pod, alias)
 					if err != nil {
 						fmt.Println(fmt.Sprintf("Could not find name: %s in pod %s, namespace %s", alias, name, namespace))
-						fmt.Println("Marking as non-used. Report if this is a bug.\n\n")
+						fmt.Println("Marking as non-used. Report if this is a bug.")
 						reference = "NOT USED"
 					}
 				}
