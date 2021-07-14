@@ -4,8 +4,8 @@ import (
 	"os"
 	"log"
 
-	"github.com/olekukonko/tablewriter"
-	"gopkg.in/yaml.v2"
+	tablewriter "github.com/olekukonko/tablewriter"
+	yaml "gopkg.in/yaml.v2"
 )
 
 
