@@ -1,4 +1,4 @@
-module kugo
+module github.com/tkennes/kugo
 
 go 1.15
 
