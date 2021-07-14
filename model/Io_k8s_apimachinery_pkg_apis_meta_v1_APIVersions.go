@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path

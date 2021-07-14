@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.

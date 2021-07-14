@@ -1,4 +1,4 @@
-package kugo_cmd
+package cmd
 
 import (
 	"github.com/spf13/cobra"
@@ -48,7 +48,7 @@ func init() {
 	// Sub level container: env, port
 	ContainerCmd.AddCommand(ContainerEnvCmd)
 	ContainerEnvCmd.PersistentFlags().StringVarP(&namespace, "namespace", "n", "", "The name of the namespace")
-	
+
 	ContainerCmd.AddCommand(ContainerPortCmd)
 	ContainerPortCmd.PersistentFlags().StringVarP(&namespace, "namespace", "n", "", "The name of the namespace")
 }

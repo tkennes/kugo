@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // EndpointsList is a list of endpoints.

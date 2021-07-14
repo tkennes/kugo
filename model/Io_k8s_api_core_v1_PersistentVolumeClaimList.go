@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // PersistentVolumeClaimList is a list of PersistentVolumeClaim items.

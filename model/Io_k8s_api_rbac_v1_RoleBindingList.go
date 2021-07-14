@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // RoleBindingList is a collection of RoleBindings

@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // list of horizontal pod autoscaler objects.

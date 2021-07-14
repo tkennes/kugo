@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // SubjectAccessReview checks whether or not a user or group can perform an action.

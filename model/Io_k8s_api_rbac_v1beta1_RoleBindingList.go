@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1

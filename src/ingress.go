@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"encoding/json"
@@ -32,7 +32,7 @@ func GetIngress(namespace string) []model.Io_k8s_api_networking_v1_Ingress {
 
 func GetAndShowIngress(namespace string) (res [][]string) {
 	ingresses := GetIngress(namespace)
-	
+
 	for _, ingress := range ingresses {
 		metadata_name := firstN(*ingress.Metadata.Name, 32)
 		metadata_namespace := firstN(*ingress.Metadata.Namespace, 32)
@@ -44,10 +44,10 @@ func GetAndShowIngress(namespace string) (res [][]string) {
 					if path.Backend.Service.Port != nil && path.Backend.Service.Name != nil {
 						port := strconv.Itoa(*path.Backend.Service.Port.Number)
 						svc_name := firstN(*path.Backend.Service.Name, 32)
-						res = append(res, 
+						res = append(res,
 							[]string{metadata_name,
 								metadata_namespace,
-								host, 
+								host,
 								*path.Path,
 								svc_name,
 								port})

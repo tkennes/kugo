@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"fmt"
@@ -23,7 +23,7 @@ func GetAndShowContainers(namespace string) (res [][]string){
 				[]string{name,
 				namespace,
 				cleanContainerImageName(*container.Image)})
-		} 
+		}
 	}
 	return
 }
@@ -44,7 +44,7 @@ func GetAndShowContainerPorts(namespace string) (res [][]string) {
 					port_,
 					*port.Protocol})
 			}
-		} 
+		}
 	}
 	return
 }
@@ -96,7 +96,7 @@ func GetAndShowContainerEnvs(namespace string) (res [][]string) {
 					var_name,
 					var_value})
 			}
-		} 
+		}
 	}
 	return
 }

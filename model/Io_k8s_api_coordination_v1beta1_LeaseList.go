@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // LeaseList is a list of Lease objects.

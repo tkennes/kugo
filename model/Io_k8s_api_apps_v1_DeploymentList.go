@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // DeploymentList is a list of Deployments.

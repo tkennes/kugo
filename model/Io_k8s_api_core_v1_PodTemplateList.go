@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // PodTemplateList is a list of PodTemplates.

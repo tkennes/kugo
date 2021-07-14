@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook

@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ReplicationControllerList is a collection of replication controllers.

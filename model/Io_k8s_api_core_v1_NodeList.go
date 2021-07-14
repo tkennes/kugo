@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // NodeList is the whole list of all Nodes which have been registered with master.

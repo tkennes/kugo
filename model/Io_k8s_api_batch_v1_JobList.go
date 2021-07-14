@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // JobList is a collection of jobs.

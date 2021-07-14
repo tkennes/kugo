@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // SecretList is a list of Secret.

@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"errors"
@@ -20,7 +20,7 @@ var (
 
 func GetAndShowVolumes(namespace string) (res [][]string) {
 	pods := GetPods(namespace)
-   
+
 	for _, pod := range pods {
 		name := *pod.Metadata.Name
 		namespace := *pod.Metadata.Namespace

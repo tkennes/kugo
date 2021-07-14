@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // PersistentVolumeList is a list of PersistentVolume items.

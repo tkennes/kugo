@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // Info contains versioning information. how we'll want to distribute that information.

@@ -1,4 +1,4 @@
-package kugo_cmd
+package cmd
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // CSIDriverList is a collection of CSIDriver objects.

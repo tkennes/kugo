@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ServiceAccountList is a list of ServiceAccount objects

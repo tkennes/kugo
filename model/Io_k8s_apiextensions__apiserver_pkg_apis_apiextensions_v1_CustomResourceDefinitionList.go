@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // CustomResourceDefinitionList is a list of CustomResourceDefinition objects.

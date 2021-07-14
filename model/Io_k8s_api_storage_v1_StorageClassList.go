@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // StorageClassList is a collection of storage classes.

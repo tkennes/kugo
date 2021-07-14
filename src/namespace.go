@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"encoding/json"
@@ -82,7 +82,7 @@ func GetCurrentNamespace() string {
 		fmt.Println(out)
         log.Printf("verbose error info: %#v", err)
 	}
-	
+
 	return cleanNamespace(string(out))
 }
 
@@ -99,7 +99,7 @@ func SetCurrentnamespace(namespace string) {
 	}
 }
 
-func parseNamespaces(responseData string) []NamespaceItem { 
+func parseNamespaces(responseData string) []NamespaceItem {
 	var obj NamespaceResponse
 	if err := json.Unmarshal([]byte(responseData), &obj); err != nil {
 		log.Fatal(err)

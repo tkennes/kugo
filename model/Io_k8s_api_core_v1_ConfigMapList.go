@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ConfigMapList is a resource containing a list of ConfigMap objects.

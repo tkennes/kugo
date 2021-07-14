@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ClusterRoleList is a collection of ClusterRoles

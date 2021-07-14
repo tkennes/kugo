@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"os"
@@ -11,7 +11,7 @@ import (
 
 func Table(jobs [][]string, header []string) {
 	table := tablewriter.NewWriter(os.Stdout)
-	
+
 	table.SetHeader(header)
 	// ALIGN LEFT
 	table.SetAlignment(3)

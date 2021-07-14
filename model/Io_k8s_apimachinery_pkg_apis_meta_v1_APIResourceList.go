@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group

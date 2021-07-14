@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated

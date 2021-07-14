@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a spec.namespace means

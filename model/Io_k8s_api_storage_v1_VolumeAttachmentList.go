@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // VolumeAttachmentList is a collection of VolumeAttachment objects.

@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"fmt"

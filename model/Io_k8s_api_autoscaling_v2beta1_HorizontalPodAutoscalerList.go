@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.

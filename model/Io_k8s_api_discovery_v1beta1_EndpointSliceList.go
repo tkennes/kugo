@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // EndpointSliceList represents a list of endpoint slices

@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // Tree Depth: 1

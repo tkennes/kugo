@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.

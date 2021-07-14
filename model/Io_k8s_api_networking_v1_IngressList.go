@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // IngressList is a collection of Ingress.

@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of

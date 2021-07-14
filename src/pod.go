@@ -1,4 +1,4 @@
-package kugo_src
+package src
 
 import (
 	"encoding/json"
@@ -34,7 +34,7 @@ func GetPods(namespace string) []model.Io_k8s_api_core_v1_Pod {
 	return parsePods(string(out))
 }
 
-func parsePods(responseData string) []model.Io_k8s_api_core_v1_Pod{ 
+func parsePods(responseData string) []model.Io_k8s_api_core_v1_Pod{
 	var obj PodResponse
 	if err := json.Unmarshal([]byte(responseData), &obj); err != nil {
 		log.Fatal(err)

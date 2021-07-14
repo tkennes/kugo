@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many

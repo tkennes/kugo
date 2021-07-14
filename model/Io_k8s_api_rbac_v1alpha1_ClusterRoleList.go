@@ -1,4 +1,4 @@
-package kugo_model
+package model
 
 
 // ClusterRoleList is a collection of ClusterRoles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1
