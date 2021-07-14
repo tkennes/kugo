@@ -1,6 +1,14 @@
 package kugo_model
 
+
+// Tree Depth: 2
+// REFERENCES:
+// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_Ingress.go
+
+
+// IngressStatus describe the current state of the Ingress.
 type Io_k8s_api_networking_v1_IngressStatus struct {
+	// LoadBalancer contains the current status of the load-balancer.
+	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_LoadBalancerStatus.go
 	LoadBalancer *Io_k8s_api_core_v1_LoadBalancerStatus `json:"loadBalancer,omitempty"`
 }
-

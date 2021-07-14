@@ -2,61 +2,18 @@ package kugo_src
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"os/exec"
 	"log"
 	"strconv"
-	"time"
-)
 
-type IngressResponse struct {
-	APIVersion string   			  `json:"apiVersion"`
-	IngressItems      []IngressItem   `json:"items"`
-	Kind       string   			   `json:"kind"`
-	Metadata   MetadataIngress `json:"metadata"`
-}
-type Annotations struct {
-	IngressKubernetesIoServerAlias              string `json:"ingress.kubernetes.io/server-alias"`
-	KubectlKubernetesIoLastAppliedConfiguration string `json:"kubectl.kubernetes.io/last-applied-configuration"`
-}
-type MetadataIngress struct {
-	Annotations       Annotations `json:"annotations"`
-	CreationTimestamp time.Time   `json:"creationTimestamp"`
-	Generation        int         `json:"generation"`
-	Name              string      `json:"name"`
-	Namespace         string      `json:"namespace"`
-	ResourceVersion   string      `json:"resourceVersion"`
-	SelfLink          string      `json:"selfLink"`
-	UID               string      `json:"uid"`
-}
-type Backend struct {
-	ServiceName string `json:"serviceName"`
-	ServicePort int    `json:"servicePort"`
-}
-type Paths struct {
-	Backend Backend `json:"backend"`
-	Path    string  `json:"path"`
-}
-type HTTP struct {
-	Paths []Paths `json:"paths"`
-}
-type Rules struct {
-	Host string `json:"host"`
-	HTTP HTTP   `json:"http"`
-}
-type SpecIngress struct {
-	Rules []Rules `json:"rules"`
-}
-type IngressItem struct {
-	APIVersion string   `json:"apiVersion"`
-	Kind       string   `json:"kind"`
-	MetadataIngress   MetadataIngress `json:"metadata"`
-	SpecIngress       SpecIngress     `json:"spec"`
-}
+	model "github.com/tkennes/kugo/model"
+)
 
 var IngressTableHeaders = []string{"name", "namespace", "host", "path", "service-name", "service-port"}
 
-func GetIngress(namespace string) []IngressItem {
+func GetIngress(namespace string) []model.Io_k8s_api_networking_v1_Ingress {
 	command_canonical := "kubectl get ingress -o json"
 	if namespace != "" {
 		command_canonical = command_canonical + " -n " + namespace
@@ -67,6 +24,7 @@ func GetIngress(namespace string) []IngressItem {
 	cmd.Env = os.Environ()
 	out, err := cmd.Output()
     if err != nil {
+		fmt.Println("ERROR IN EXECUTION: " + command_canonical)
         log.Fatal(err)
     }
 	return parseIngress(string(out))
@@ -76,20 +34,25 @@ func GetAndShowIngress(namespace string) (res [][]string) {
 	ingresses := GetIngress(namespace)
 	
 	for _, ingress := range ingresses {
-		metadata_name := firstN(ingress.MetadataIngress.Name, 32)
-		metadata_namespace := firstN(ingress.MetadataIngress.Namespace, 32)
-		for _, rule := range ingress.SpecIngress.Rules {
-			host := rule.Host
-			for _, path := range rule.HTTP.Paths {
-				port := strconv.Itoa(path.Backend.ServicePort)
-				svc_name := firstN(path.Backend.ServiceName, 32)
-				res = append(res, 
-					[]string{metadata_name,
-						metadata_namespace,
-						host, 
-						path.Path,
-						svc_name,
-						port})
+		metadata_name := firstN(*ingress.Metadata.Name, 32)
+		metadata_namespace := firstN(*ingress.Metadata.Namespace, 32)
+		for _, rule := range ingress.Spec.Rules {
+			host := *rule.Host
+			fmt.Println(host)
+			for _, path := range rule.Http.Paths {
+				if path.Backend.Service != nil {
+					if path.Backend.Service.Port != nil && path.Backend.Service.Name != nil {
+						port := strconv.Itoa(*path.Backend.Service.Port.Number)
+						svc_name := firstN(*path.Backend.Service.Name, 32)
+						res = append(res, 
+							[]string{metadata_name,
+								metadata_namespace,
+								host, 
+								*path.Path,
+								svc_name,
+								port})
+					}
+				}
 			}
 		}
 	}
@@ -104,10 +67,10 @@ func firstN(str string, n int) string {
 	}
 }
 
-func parseIngress(responseData string) []IngressItem {
-	var obj IngressResponse
+func parseIngress(responseData string) []model.Io_k8s_api_networking_v1_Ingress {
+	var obj model.Io_k8s_api_networking_v1_IngressList
 	if err := json.Unmarshal([]byte(responseData), &obj); err != nil {
 		log.Fatal(err)
 	}
-	return obj.IngressItems
+	return obj.Items
 }

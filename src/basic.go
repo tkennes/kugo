@@ -18,7 +18,7 @@ func GetAllResources(namespace string) string {
 	cmd.Env = os.Environ()
 	out, err := cmd.Output()
     if err != nil {
-		fmt.Println(out)
+		fmt.Println("ERROR IN EXECUTION: " + command_canonical)
         log.Fatal(err)
     }
 	return string(out)

@@ -47,8 +47,7 @@ func GetNamespaces() []NamespaceItem {
 	cmd.Env = os.Environ()
 	out, err := cmd.Output()
     if err != nil {
-		fmt.Println("command failed")
-		fmt.Println(out)
+		fmt.Println("ERROR IN EXECUTION: " + command_canonical)
         log.Printf("verbose error info: %#v", err)
     }
 	return parseNamespaces(string(out))

@@ -20,30 +20,30 @@ var (
 
 func GetAndShowVolumes(namespace string) (res [][]string) {
 	pods := GetPods(namespace)
-
+   
 	for _, pod := range pods {
-		name := pod.Metadata.Name
-		namespace := pod.Metadata.Namespace
+		name := *pod.Metadata.Name
+		namespace := *pod.Metadata.Namespace
 		for _, vol := range pod.Spec.Volumes {
 			type_ := ""
-			alias := vol.Name
+			alias := *vol.Name
 			object_name := ""
 			reference := ""
 			var err error
 			if vol.PersistentVolumeClaim != nil {
 				type_ = "pvc"
-				object_name = vol.PersistentVolumeClaim.ClaimName
+				object_name = *vol.PersistentVolumeClaim.ClaimName
 			} else if vol.ConfigMap != nil {
 				type_ = "cfm"
-				object_name = vol.ConfigMap.Name
+				object_name = *vol.ConfigMap.Name
 			} else if vol.Secret != nil {
 				type_ = "sec"
-				object_name = vol.Secret.SecretName
+				object_name = *vol.Secret.SecretName
 			} else if vol.EmptyDir != nil {
 				type_ = "emptyDir"
-			} else if vol.HostPath != nil {
+			} else if *vol.HostPath.Path != "" {
 				type_ = "HostPath"
-				object_name = vol.HostPath.Path
+				object_name = *vol.HostPath.Path
 			} else {
 				fmt.Println("Found Unknown Storage Class")
 				fmt.Println("Volume:")
@@ -80,8 +80,8 @@ func GetAndShowVolumes(namespace string) (res [][]string) {
 func findVolumeMount(pod model.Io_k8s_api_core_v1_Pod, name string) (string, error) {
 	for _, container := range pod.Spec.Containers {
 		for _, volume_mount := range container.VolumeMounts {
-			if volume_mount.Name == name {
-				return volume_mount.MountPath, nil
+			if *volume_mount.Name == name {
+				return *volume_mount.MountPath, nil
 			}
 		}
 	}
@@ -91,8 +91,12 @@ func findVolumeMount(pod model.Io_k8s_api_core_v1_Pod, name string) (string, err
 func findSecretReference(pod model.Io_k8s_api_core_v1_Pod, name string) (string, error) {
 	for _, container := range pod.Spec.Containers {
 		for _, env := range container.Env {
-			if env.ValueFrom.SecretKeyRef.Name == name {
-				return "ENV: " + env.Name, nil
+			if env.ValueFrom != nil {
+				if env.ValueFrom.SecretKeyRef != nil {
+					if *env.ValueFrom.SecretKeyRef.Name == name {
+						return "ENV: " + *env.Name, nil
+					}
+				}
 			}
 		}
 	}

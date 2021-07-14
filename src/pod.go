@@ -28,8 +28,7 @@ func GetPods(namespace string) []model.Io_k8s_api_core_v1_Pod {
 	cmd.Env = os.Environ()
 	out, err := cmd.Output()
     if err != nil {
-		fmt.Println("command failed")
-		fmt.Println(out)
+		fmt.Println("ERROR IN EXECUTION: " + command_canonical)
         log.Printf("verbose error info: %#v", err)
 	}
 	return parsePods(string(out))

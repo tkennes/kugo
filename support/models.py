@@ -16,35 +16,17 @@ import json
 import requests
 import textwrap
 
+from settings import (
+    GOLANG_GENERICS,
+    IMPORT_MAPPING,
+    TYPE_MAPPING,
+    URL
+)
 
-########################################################################################################################
-# Some Settings
-########################################################################################################################
-NO_DESCRIPTION_REQUIRED_IF_MISSING = [
-    "bool",
-    "int",
-    "float64",
-    "interface",
-    "string"
-]
 
-IMPORT_MAPPING = {
-    "time.Time": "time"
-}
+EMPTY_DEFINITIONS = []
+MANDATORY_POINTERS = []
 
-TYPE_MAPPING = {
-    # Generic Types
-    "boolean": "bool",
-    "integer": "int",
-    "number": "float64",
-    "object": "interface",# This is a shortcut and might give problems in the future.
-    "string": "string",
-    # Specific Empty Definitions, used as helpers within the API
-    "Io_k8s_apimachinery_pkg_apis_meta_v1_Time": "time.Time",
-    "Io_k8s_apimachinery_pkg_util_intstr_IntOrString": "int"
-}
-
-URL = 'https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json'
 ########################################################################################################################
 # Helpers
 ########################################################################################################################
@@ -151,6 +133,7 @@ def parse_type(struct_name, spec):
     #   field_a struct_a `json:"field_a"`
     # }
     if struct_name == result:
+        print("RECURSIVE: " + result)
         result = "*" + result
     return result
 
@@ -186,45 +169,48 @@ def translate_import(import_):
     else:
         return import_
 
+###################### Validators ######################
 def check_and_add_import(imports, property_type):
     if property_type in IMPORT_MAPPING.keys():
         imports.append(translate_import(property_type))
     return imports
 
+def CheckLeaf(child_type):
+    if child_type not in GOLANG_GENERICS:
+        return False
+    else:
+        return True
+
+def CheckForDefinitionWithoutProperties(definition):
+    if "properties" not in definition.keys():
+        return True
+    else:
+        return False
+
 ###################### Formatter ######################
-def formatToPointerIfNecessary(type_, required):
+def formatToPointerIfNecessary(type_, isLeaf, isRequired):
     """ Format the field type into a pointer if necessary.
 
-    Why do we want this? 
-        - If a field is not required, and not available, using a pointer
-        would result in a "nil" value. Otherwise, we need to dive deeper
-        into the tree to investigate whether or not this branch exists.
-
-    When is this necessary? If and only if:
-        - The field is not required
-        - The field does not start with []
-        - The field is not of a generic Go Type
-            - string
-            - int
-            - float64
-            - bool
+    Sometimes we want to want to make use of a pointer to be able to check for nil.
 
     Args:
         type_ (str): Go variable
-        required (bool): Whether or not the variable is a required variable
 
     Returns:
         string: A pointer to the Go variable
     """
     # It should be a point if it is not a basic go object, and not required/omittable
-    if not required:
-        if len(type_) > 2:
-            if type_[0:2] != "[]" and type_ not in ["string", "int", "float64", "bool"]:
-                return "*" + type_
-            else:
-                return type_
+    if ((type_ in MANDATORY_POINTERS or isLeaf or not isRequired or type_ in EMPTY_DEFINITIONS) and 
+       (type_[0] != "*" and type_[0] != "[")):
+        if type_ in MANDATORY_POINTERS:
+           print("MANDATORY_POINTER: " + type_)
+        elif isLeaf:
+            print("ISLEAF: " + type_)
+        elif not isRequired:
+            print("NOT ISREQUIRED: " + type_)
         else:
-            return type_
+            print("EMPTY_DEF: " + type_)
+        return "*" + type_
     else:
         return type_
 
@@ -269,11 +255,14 @@ def set_newlines_description_properties(description, struct_name):
     Returns:
         string: Line out properties description
     """
-    if not description and struct_name not in NO_DESCRIPTION_REQUIRED_IF_MISSING:
+    if not description and struct_name not in GOLANG_GENERICS:
         return "\n\t// See: " + linkify_struct_name(struct_name)
-    elif not description and struct_name in NO_DESCRIPTION_REQUIRED_IF_MISSING:
+    elif not description and struct_name in GOLANG_GENERICS:
         return "\n\t// NO DESCRIPTION"
-    return "\n\t// " + "\n\t// ".join(textwrap.wrap(description, 120, break_long_words=False, break_on_hyphens=True))
+    else:
+        res = "\n\t// " + "\n\t// ".join(textwrap.wrap(description, 120, break_long_words=False, break_on_hyphens=True))
+        res += "\n\t// See: " + linkify_struct_name(struct_name)
+        return res
 
 def linkify_struct_name(struct_name):
     """Used to format a struct name such that it can be used to 
@@ -292,7 +281,9 @@ def linkify_struct_name(struct_name):
 # Toplevel
 ########################################################################################################################
 # Create function to build Go code
-def create_go_struct(struct_description, struct_name, properties, imports, package_name, output_format="json", verbose=True):
+def create_go_struct(
+    struct_description, struct_name, properties, imports, package_name, 
+    parents, depth, output_format="json", verbose=True):
     """ Create a Go-struct from the parsed struct name and properties
 
     Args:
@@ -321,12 +312,19 @@ def create_go_struct(struct_description, struct_name, properties, imports, packa
             full_result += '\n\t"' + import_ + '"'
         full_result += "\n)"
     
+    if depth > 0 and verbose:
+        full_result += "\n\n"
+        full_result += "\n// Tree Depth: " + str(depth)
+        full_result += "\n// REFERENCES:"
+        for parent in parents:
+            full_result += "\n// - " + linkify_struct_name(parent)
+
     # If verbose is true, add the struct description if verbose
     if verbose:
         full_result += set_newlines_description_struct(struct_description)
     else:
         full_result += "\n"
-    
+
     # Start of the struct definition
     full_result += "\ntype " + struct_name + " struct {"
 
@@ -361,34 +359,39 @@ def create_go_struct(struct_description, struct_name, properties, imports, packa
                 '`' + output_format + ':"' + property_["raw_property_name"] + ',omitempty"`'
             )
 
-    # Finally, close of the struct and add a newline to comply with coding standards.
+    # Finally, close of the struct
     full_result += "\n}\n"
 
     return full_result
 
 
-def parse_definition(struct_name, definition, package_name, output_format="json", verbose=True):
+def parse_definition(struct_name, definition, tree):
     """Parse the raw definition, clean up the names, definitions and properties and pass the results on to have a Go script created
 
     Args:
         struct_name (str): The name we want to have for the struct
         definition (str): The definition that accompanies the struct
-        package_name (str): The name we have chosen for the package
-        output_format (str, optional): The format we want to request from the API. Defaults to "json".
-        verbose (bool, optional): Whether or not we want to add descriptions in general. Defaults to True.
+        tree 
 
     Returns:
         String: The contents of a Go file
-    """
-    # Some input validation:
-    assert output_format in ["json", "yaml"]
-    
+    """  
     # Container variables
     properties = []
     imports = []
-
+    clean_struct_name = clean_ref(struct_name)
+    tree["children"][clean_struct_name] = []
+    
     # Assess what properties are required
     required = parse_required(definition)
+
+    # If no field is required, we could end up with an
+    # empty struct, which we should avoid by making a
+    # pointer out of it
+    # Leaving this out now, since we only want leaves to 
+    # be structs
+    # if len(required) == 0:
+    #    MANDATORY_POINTERS.append(clean_struct_name)
 
     # Assess and parse the Struct Definition
     if "description" in definition.keys():
@@ -398,13 +401,18 @@ def parse_definition(struct_name, definition, package_name, output_format="json"
 
     # Assess and parse the Struct Properties
     # StorageVersionSpec is an Empty spec: Hence, we need to check for this.
-    if "properties" in definition:
-        for property_, specs in definition["properties"].items():
+    if not CheckForDefinitionWithoutProperties(definition):
+        for property_, specs in definition["properties"].items():   
+            # Assemble property Name
+            property_name = clean_ref(property_)
+
+            # Check if is required
             isRequired = property_ in required
 
             # Assemble property Type
-            property_type = parse_type(clean_ref(struct_name), specs)
-            property_type = formatToPointerIfNecessary(property_type, isRequired)
+            property_type = parse_type(clean_struct_name, specs)
+            isLeaf = CheckLeaf(property_type)
+            property_type = formatToPointerIfNecessary(property_type, isLeaf, isRequired)
 
             # Assemble Property Description
             if "description" in definition["properties"][property_]:
@@ -412,21 +420,100 @@ def parse_definition(struct_name, definition, package_name, output_format="json"
             else:
                 property_description = ""
             
+            # TODO: Fix
+            if property_name.lower() in ["httpget"]:
+                # This gives errors later since this port receives both ints and strings.
+                # Hence, we either need to apply some custom maatwerk or skip for now.
+                continue
+
             # Assemble Property
             properties.append({
                 "raw_property_name": property_, 
-                "property_name": clean_ref(property_),
-                "property_type": formatToPointerIfNecessary(property_type, isRequired),
+                "property_name": property_name,
+                "property_type": property_type,
                 "required": isRequired,
-                "description": property_description
+                "description": property_description,
+                "isLeaf": isLeaf
+            })
+
+            # Add child
+            tree["children"][clean_struct_name].append({
+                "name": property_name,
+                "type": property_type,
+                "isLeaf": isLeaf
             })
 
             # Assess whether the property type requires an import
             imports = check_and_add_import(imports, property_type)
-    
-    # Pass the parsed variables to the Go Struct Generation
-    return create_go_struct(full_description, clean_ref(struct_name), properties, imports, package_name, output_format, verbose)
+    else:
+        MANDATORY_POINTERS.append(clean_struct_name)
 
+    golang_struct = {
+        "struct_description": full_description,
+        "struct_name": clean_struct_name,
+        "properties": properties,
+        "imports": imports,
+    }
+
+    # Pass the parsed variables to the Go Struct Generation
+    return golang_struct, tree
+
+
+########################################################################################################################
+# Children and Parent Assessments
+########################################################################################################################
+def get_parents(tree):
+    for definition in tree["children"]:
+        tree["parents"][definition] = find_parents(definition, tree)
+    return tree
+
+def generalize_type(type_):
+    return type_.replace("*", "").replace("[]", "")
+
+def find_parents(child_name, tree):
+    res = []
+    for definition in tree["children"]:
+        if definition != child_name:
+            for child in tree["children"][definition]:
+                if generalize_type(child["type"]) == child_name:
+                    res.append(definition)
+    return list(set(res))
+
+def assess_tree_depth(tree):
+    remaining_depths = check_remaining_depths(tree)
+    print("Total definitions: " + str(remaining_depths) + "\n")
+    print("----------------------------------------------------------------------")
+
+    for definition in tree["parents"]:
+        if len(tree["parents"][definition]) == 0:
+            tree["depths"][definition] = 0
+
+    iteration = 0
+    while remaining_depths > 0 and iteration < 50:
+        print("Filling up depth. Iteration: " + str(iteration + 1))
+        tree = update_tree_depth(tree, iteration)
+        iteration += 1
+        remaining_depths = check_remaining_depths(tree)
+        print("Remaining definitions: " + str(remaining_depths) + "\n")
+
+    return tree
+
+def update_tree_depth(tree, last_depth):
+    for definition in tree["parents"]:
+        if not tree["depths"][definition] and tree["depths"][definition] != 0:
+            for parent in tree["parents"][definition]:
+                if tree["depths"][parent] == last_depth:
+                    tree["depths"][definition] = last_depth + 1
+    return tree
+
+def check_remaining_depths(tree):
+    non_filled = 0
+    for definition in tree["parents"]:
+        # Seems to be a python bug here: None == 0?
+        if not tree["depths"][definition] and tree["depths"][definition] != 0:
+            non_filled += 1
+    
+    return non_filled
 
 ########################################################################################################################
 # Main: Since this is a python-script, we need to have this main-condition to kick-off execution
@@ -469,8 +556,8 @@ def create_parser():
         action="store_true"
     )
 
-
     return parser
+
 
 if __name__ == "__main__":
     # Get Arguments
@@ -496,20 +583,61 @@ if __name__ == "__main__":
         # Since the source is rate-limited, you might prefer to download it to a file and read it from there
         jsonbody = read_json()
 
-    # Constants
-    package_name = "kugo_model"
-
     # Create the folder if it does not exist
     if not os.path.exists(args.folder):
         os.makedirs(args.folder)
 
+    tree = {
+        "children": {},
+        "parents": {},
+        "depths": {}
+    }
+
+    # Find Empty Definitions
+    for definition in jsonbody["definitions"].keys():
+        if CheckForDefinitionWithoutProperties(jsonbody["definitions"][definition]):
+            EMPTY_DEFINITIONS.append(clean_ref(definition))
+
+    # Assemble golang structs and tree
+    golang_structs = []
+    for definition in jsonbody["definitions"].keys():
+        golang_struct, tree = parse_definition(definition, jsonbody["definitions"][definition], tree)
+        golang_structs.append(golang_struct)
+        tree["parents"][golang_struct["struct_name"]] = []
+        tree["depths"][golang_struct["struct_name"]] = None
+
+    tree = get_parents(tree)
+    # Assemble tree depth
+    print("----------------------------------------------------------------------")
+    tree = assess_tree_depth(tree)
+
+    if not args.no_descriptions:
+        # Create the folder if it does not exist
+        if not os.path.exists("./meta"):
+            os.makedirs("./meta")
+
+        open("./meta/children.txt", 'w+').write(str(tree["children"]))
+        open("./meta/parents.txt", 'w+').write(str(tree["parents"]))
+        open("./meta/depths.txt", 'w+').write(str(tree["depths"]))
+
     # Loop over the definitions and, clean the names and output them to the required folder
     total_files = 0
-    for k in jsonbody["definitions"].keys():
+    for g in golang_structs:
         total_files += 1
-        name = clean_ref(k)
-        with open(args.folder + "/" + name + ".go", 'w') as out_file: 
-            out_file.write(parse_definition(k, jsonbody["definitions"][k], args.package, output_format=args.output, verbose=not args.no_descriptions))
+        with open(args.folder + "/" + g["struct_name"] + ".go", 'w') as out_file: 
+            out_file.write(
+                create_go_struct(
+                    g["struct_description"],
+                    g["struct_name"],
+                    g["properties"],
+                    g["imports"],
+                    parents=tree["parents"][g["struct_name"]],
+                    depth=tree["depths"][g["struct_name"]],
+                    package_name=args.package,
+                    output_format=args.output, 
+                    verbose=not args.no_descriptions
+                )
+            )
 
     # Conclude Reporting
     print("----------------------------------------------------------------------")
