@@ -1,4 +1,4 @@
-package cmd
+package kugo_cmd
 
 import (
 	"github.com/spf13/cobra"

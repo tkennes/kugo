@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // CSINodeList is a collection of CSINode objects.

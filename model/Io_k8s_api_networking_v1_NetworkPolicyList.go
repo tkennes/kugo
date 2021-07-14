@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // NetworkPolicyList is a list of NetworkPolicy objects.

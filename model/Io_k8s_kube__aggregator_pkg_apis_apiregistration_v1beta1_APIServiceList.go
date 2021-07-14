@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // APIServiceList is a list of APIService objects.

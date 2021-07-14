@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // TokenRequest requests a token for a given service account.

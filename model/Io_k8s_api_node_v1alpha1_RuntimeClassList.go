@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // RuntimeClassList is a list of RuntimeClass objects.

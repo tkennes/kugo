@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list

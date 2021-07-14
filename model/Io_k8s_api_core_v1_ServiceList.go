@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // ServiceList holds a list of services.

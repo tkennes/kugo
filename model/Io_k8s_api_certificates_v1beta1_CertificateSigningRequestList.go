@@ -1,4 +1,4 @@
-package model
+package kugo_model
 type Io_k8s_api_certificates_v1beta1_CertificateSigningRequestList struct {
 	// APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas
 	// to the latest internal value, and may reject unrecognized values. More info:

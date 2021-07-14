@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // EventList is a list of events.

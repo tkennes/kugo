@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // PodDisruptionBudgetList is a collection of PodDisruptionBudgets.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // PriorityClassList is a collection of priority classes.

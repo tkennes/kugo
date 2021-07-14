@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no

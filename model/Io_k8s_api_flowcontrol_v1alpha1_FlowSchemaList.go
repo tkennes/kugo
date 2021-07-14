@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // FlowSchemaList is a list of FlowSchema objects.

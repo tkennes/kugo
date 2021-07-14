@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // DaemonSetList is a collection of daemon sets.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // LimitRangeList is a list of LimitRange items.

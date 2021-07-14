@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace. Having a

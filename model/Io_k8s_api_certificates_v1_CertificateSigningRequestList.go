@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // CertificateSigningRequestList is a collection of CertificateSigningRequest objects

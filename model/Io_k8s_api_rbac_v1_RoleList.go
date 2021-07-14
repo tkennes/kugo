@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // RoleList is a collection of Roles

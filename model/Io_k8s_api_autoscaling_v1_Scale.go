@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // Scale represents a scaling request for a resource.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // A list of StorageVersions.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // NamespaceList is a list of Namespaces.

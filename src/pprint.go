@@ -1,4 +1,4 @@
-package src
+package kugo_src
 
 import (
 	"os"

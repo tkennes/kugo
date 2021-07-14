@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // HTTPGetAction describes an action based on HTTP Get requests.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // Status is a return value for calls that don't return other objects.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // ReplicaSetList is a collection of ReplicaSets.

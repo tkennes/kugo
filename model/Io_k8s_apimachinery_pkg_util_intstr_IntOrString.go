@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it

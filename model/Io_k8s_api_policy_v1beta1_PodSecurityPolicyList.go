@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // PodSecurityPolicyList is a list of PodSecurityPolicy objects.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // JSONSchemaPropsOrStringArray represents a JSONSchemaProps or a string array.

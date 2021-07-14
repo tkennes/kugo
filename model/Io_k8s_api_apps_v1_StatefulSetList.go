@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // StatefulSetList is a collection of StatefulSets.

@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // Event represents a single event to a watched resource.

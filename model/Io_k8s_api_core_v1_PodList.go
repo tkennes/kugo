@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // PodList is a list of Pods.

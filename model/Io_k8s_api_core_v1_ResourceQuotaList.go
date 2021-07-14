@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // ResourceQuotaList is a list of ResourceQuota items.

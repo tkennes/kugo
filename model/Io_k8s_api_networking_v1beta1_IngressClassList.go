@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // IngressClassList is a collection of IngressClasses.

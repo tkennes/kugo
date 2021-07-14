@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A

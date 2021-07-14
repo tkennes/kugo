@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // CronJobList is a collection of cron jobs.

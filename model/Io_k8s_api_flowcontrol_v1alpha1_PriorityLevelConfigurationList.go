@@ -1,4 +1,4 @@
-package model
+package kugo_model
 
 
 // PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
