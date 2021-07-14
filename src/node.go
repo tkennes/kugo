@@ -17,10 +17,10 @@ type NodeResponse struct {
 }
 
 var (
-	NodeHeaders = []string{"Name", "Phase", "Architecture",
-		"BootID", "ContainerRuntimeVersion", "KernelVersion",
-		"KubeProxyVersion", "KubeletVersion", "MachineID",
-		"OperatingSystem", "OsImage", "SystemUUID",
+	NodeHeaders = []string{"Name", "IP", "Architecture",
+		"ContainerRuntimeVersion", "KernelVersion",
+		"KubeProxyVersion", "KubeletVersion",
+		"OperatingSystem", "OsImage",
 	}
 )
 
@@ -48,19 +48,22 @@ func GetAndShowNodes() (res [][]string){
 	nodes := GetNodes()
 
 	for _, node := range nodes {
+		ip_address := ""
+		for _, address := range node.Status.Addresses {
+			if *address.Type == "InternalIP" {
+				ip_address = *address.Address
+			}
+		}
 		res = append(res,
 			[]string{*node.Metadata.Name,
-				*node.Status.Phase,
+				ip_address,
 				*node.Status.NodeInfo.Architecture,
-				*node.Status.NodeInfo.BootID,
 				*node.Status.NodeInfo.ContainerRuntimeVersion,
 				*node.Status.NodeInfo.KernelVersion,
 				*node.Status.NodeInfo.KubeProxyVersion,
 				*node.Status.NodeInfo.KubeletVersion,
-				*node.Status.NodeInfo.MachineID,
 				*node.Status.NodeInfo.OperatingSystem,
 				*node.Status.NodeInfo.OsImage,
-				*node.Status.NodeInfo.SystemUUID,
 		})
 	}
 	return

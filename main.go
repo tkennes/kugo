@@ -5,8 +5,8 @@ import (
 	"os"
 	"io/ioutil"
 
-	"github.com/tkennes/kugo/cmd"
-	"github.com/tkennes/kugo/src"
+	cmd "github.com/tkennes/kugo/cmd"
+	src "github.com/tkennes/kugo/src"
 )
 
 func main() {

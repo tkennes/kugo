@@ -2,6 +2,7 @@ package kugo_cmd
 
 import (
 	"github.com/spf13/cobra"
+
 	src "github.com/tkennes/kugo/src"
 )
 
@@ -15,8 +16,6 @@ var NodesCmd = &cobra.Command{
 
 
 func init() {
-	var namespace string
-
 	// Top Levels: nodes, node
 	RootCmd.AddCommand(NodesCmd)
 }

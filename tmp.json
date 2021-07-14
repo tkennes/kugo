@@ -1,0 +1,610 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2021-05-22T13:08:07Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "docker-desktop",
+                    "kubernetes.io/os": "linux",
+                    "node-role.kubernetes.io/master": ""
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:kubeadm.alpha.kubernetes.io/cri-socket": {}
+                                },
+                                "f:labels": {
+                                    "f:node-role.kubernetes.io/master": {}
+                                }
+                            }
+                        },
+                        "manager": "kubeadm",
+                        "operation": "Update",
+                        "time": "2021-05-22T13:08:08Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:node.alpha.kubernetes.io/ttl": {}
+                                }
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-06-13T09:57:42Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:volumes.kubernetes.io/controller-managed-attach-detach": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:beta.kubernetes.io/arch": {},
+                                    "f:beta.kubernetes.io/os": {},
+                                    "f:kubernetes.io/arch": {},
+                                    "f:kubernetes.io/hostname": {},
+                                    "f:kubernetes.io/os": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:addresses": {
+                                    ".": {},
+                                    "k:{\"type\":\"Hostname\"}": {
+                                        ".": {},
+                                        "f:address": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"InternalIP\"}": {
+                                        ".": {},
+                                        "f:address": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:allocatable": {
+                                    ".": {},
+                                    "f:cpu": {},
+                                    "f:ephemeral-storage": {},
+                                    "f:hugepages-1Gi": {},
+                                    "f:hugepages-2Mi": {},
+                                    "f:memory": {},
+                                    "f:pods": {}
+                                },
+                                "f:capacity": {
+                                    ".": {},
+                                    "f:cpu": {},
+                                    "f:ephemeral-storage": {},
+                                    "f:hugepages-1Gi": {},
+                                    "f:hugepages-2Mi": {},
+                                    "f:memory": {},
+                                    "f:pods": {}
+                                },
+                                "f:conditions": {
+                                    ".": {},
+                                    "k:{\"type\":\"DiskPressure\"}": {
+                                        ".": {},
+                                        "f:lastHeartbeatTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"MemoryPressure\"}": {
+                                        ".": {},
+                                        "f:lastHeartbeatTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"PIDPressure\"}": {
+                                        ".": {},
+                                        "f:lastHeartbeatTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Ready\"}": {
+                                        ".": {},
+                                        "f:lastHeartbeatTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:daemonEndpoints": {
+                                    "f:kubeletEndpoint": {
+                                        "f:Port": {}
+                                    }
+                                },
+                                "f:images": {},
+                                "f:nodeInfo": {
+                                    "f:architecture": {},
+                                    "f:bootID": {},
+                                    "f:containerRuntimeVersion": {},
+                                    "f:kernelVersion": {},
+                                    "f:kubeProxyVersion": {},
+                                    "f:kubeletVersion": {},
+                                    "f:machineID": {},
+                                    "f:operatingSystem": {},
+                                    "f:osImage": {},
+                                    "f:systemUUID": {}
+                                }
+                            }
+                        },
+                        "manager": "kubelet",
+                        "operation": "Update",
+                        "time": "2021-06-13T09:58:12Z"
+                    }
+                ],
+                "name": "docker-desktop",
+                "resourceVersion": "2496612",
+                "selfLink": "/api/v1/nodes/docker-desktop",
+                "uid": "9412aed6-290e-48d3-af02-3a5f506e43c4"
+            },
+            "spec": {},
+            "status": {
+                "addresses": [
+                    {
+                        "address": "192.168.65.4",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "docker-desktop",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "6",
+                    "ephemeral-storage": "56453061334",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "8050584Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "6",
+                    "ephemeral-storage": "61255492Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "8152984Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2021-07-14T16:53:37Z",
+                        "lastTransitionTime": "2021-06-13T09:58:12Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2021-07-14T16:53:37Z",
+                        "lastTransitionTime": "2021-06-13T09:58:12Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2021-07-14T16:53:37Z",
+                        "lastTransitionTime": "2021-06-13T09:58:12Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2021-07-14T16:53:37Z",
+                        "lastTransitionTime": "2021-06-13T09:58:12Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "algolia/docsearch-scraper@sha256:ca909fe6ac9757eb200dbf0e4eca068a9d2cd904273fb7f113264acc0635f0eb",
+                            "algolia/docsearch-scraper:latest"
+                        ],
+                        "sizeBytes": 1674733494
+                    },
+                    {
+                        "names": [
+                            "mcr.microsoft.com/mssql/server@sha256:24e58f079a083e975b0066f30bec7301d5a2cb0aad0cc50156218ae1c3d757c6",
+                            "mcr.microsoft.com/mssql/server:2017-latest-ubuntu"
+                        ],
+                        "sizeBytes": 1304745108
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 1127916680
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 686023154
+                    },
+                    {
+                        "names": [
+                            "hygge.azurecr.io/hygge-docsy:latest"
+                        ],
+                        "sizeBytes": 650672036
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 623151069
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 576726850
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 576726724
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 576724993
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 561750687
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 561216055
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 558517268
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544648541
+                    },
+                    {
+                        "names": [
+                            "test:latest"
+                        ],
+                        "sizeBytes": 544486757
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544328087
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544323756
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544322282
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544317636
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 544229860
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 491310751
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 491310751
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 437171352
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 437171158
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 437170865
+                    },
+                    {
+                        "names": [
+                            "mongo@sha256:a1fc96ebb76e84f2e1809925a8a9a6633936bde0906c2ea3c3666cfcf42d211f",
+                            "mongo:4.0"
+                        ],
+                        "sizeBytes": 430053285
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 399119225
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 399119225
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 399119225
+                    },
+                    {
+                        "names": [
+                            "hygge.azurecr.io/hygge-docs@sha256:1cf94374ccaf0b02036a20a7b8f95355bff4cff98bac48d97b2eab7acd425948",
+                            "hygge.azurecr.io/hygge-docs:0.0.1"
+                        ],
+                        "sizeBytes": 398811906
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 335113183
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 335113183
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 335113183
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 301440964
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 301440962
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 301440954
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 301440952
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 301440801
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 296873446
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 296872853
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 296872260
+                    },
+                    {
+                        "names": [
+                            "amazon/aws-cli@sha256:0ead8f46df8a7ae550afd97000f79143743c902c261671f29dac9bf2431167cd",
+                            "amazon/aws-cli:2.1.18"
+                        ],
+                        "sizeBytes": 296872260
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 296872260
+                    },
+                    {
+                        "names": [
+                            "docker/desktop-kubernetes@sha256:07a93ea638016df38576e277b34dd7af06d798bced8b663be127eacd5882350a",
+                            "docker/desktop-kubernetes:kubernetes-v1.19.7-cni-v0.8.5-critools-v1.17.0-debian"
+                        ],
+                        "sizeBytes": 284815363
+                    },
+                    {
+                        "names": [
+                            "jaegertracing/jaeger-operator@sha256:cfbdb7b29c431747f3430a6a776a7631adefc27bd2df99584cfc814ec72ba573",
+                            "jaegertracing/jaeger-operator:1.21.2"
+                        ],
+                        "sizeBytes": 266903646
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/etcd@sha256:4ad90a11b55313b182afc186b9876c8e891531b8db4c9bf1541953021618d0e2",
+                            "k8s.gcr.io/etcd:3.4.13-0"
+                        ],
+                        "sizeBytes": 253392289
+                    },
+                    {
+                        "names": [
+                            "fedora@sha256:7f1cf1e2baaa65da0763ceec36202b5f5e49ba18069ab2950503ffe3b22f8fbf",
+                            "fedora:26"
+                        ],
+                        "sizeBytes": 231669643
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 204231695
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 129379439
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 129379434
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 129379428
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "7b31ed2e-cfb8-4c27-ac5e-e35464f4c30e",
+                    "containerRuntimeVersion": "docker://20.10.5",
+                    "kernelVersion": "5.10.25-linuxkit",
+                    "kubeProxyVersion": "v1.19.7",
+                    "kubeletVersion": "v1.19.7",
+                    "machineID": "b22c495f-5674-4d60-ad5c-642e45836c18",
+                    "operatingSystem": "linux",
+                    "osImage": "Docker Desktop",
+                    "systemUUID": "7d0d4bd9-0000-0000-af52-1ae43fed9b3a"
+                }
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
