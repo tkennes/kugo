@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 5
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_LimitResponse.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_LimitResponse.go
 
 
 // QueuingConfiguration holds the configuration parameters for queuing
@@ -14,17 +14,17 @@ type Io_k8s_api_flowcontrol_v1alpha1_QueuingConfiguration struct {
 	// queues in that hand. `handSize` must be no larger than `queues`, and should be significantly smaller (so that a few
 	// heavy flows do not saturate most of the queues).  See the user-facing documentation for more extensive guidance on
 	// setting this field.  This field has a default value of 8.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	HandSize         *int `json:"handSize,omitempty"`
 
 	// `queueLengthLimit` is the maximum number of requests allowed to be waiting in a given queue of this priority level at a
 	// time; excess requests are rejected.  This value must be positive.  If not specified, it will be defaulted to 50.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	QueueLengthLimit *int `json:"queueLengthLimit,omitempty"`
 
 	// `queues` is the number of queues for this priority level. The queues exist independently at each apiserver. The value
 	// must be positive.  Setting it to 1 effectively precludes shufflesharding and thus makes the distinguisher method of
 	// associated flow schemas irrelevant.  This field has a default value of 64.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	Queues           *int `json:"queues,omitempty"`
 }

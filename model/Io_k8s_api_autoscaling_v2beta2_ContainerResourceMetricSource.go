@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_autoscaling_v2beta2_MetricSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_autoscaling_v2beta2_MetricSpec.go
 
 
 // ContainerResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests
@@ -12,14 +12,14 @@ package kugo_model
 // of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
 type Io_k8s_api_autoscaling_v2beta2_ContainerResourceMetricSource struct {
 	// container is the name of the container in the pods of the scaling target
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Container *string                                     `json:"container"`
 
 	// name is the name of the resource in question.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Name      *string                                     `json:"name"`
 
 	// target specifies the target value for the given metric
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_autoscaling_v2beta2_MetricTarget.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_autoscaling_v2beta2_MetricTarget.go
 	Target    Io_k8s_api_autoscaling_v2beta2_MetricTarget `json:"target"`
 }

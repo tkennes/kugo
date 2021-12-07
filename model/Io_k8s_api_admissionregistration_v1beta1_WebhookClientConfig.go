@@ -3,20 +3,20 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_admissionregistration_v1beta1_MutatingWebhook.go
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_admissionregistration_v1beta1_ValidatingWebhook.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_admissionregistration_v1beta1_ValidatingWebhook.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_admissionregistration_v1beta1_MutatingWebhook.go
 
 
 // WebhookClientConfig contains the information to make a TLS connection with the webhook
 type Io_k8s_api_admissionregistration_v1beta1_WebhookClientConfig struct {
 	// `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified,
 	// system trust roots on the apiserver are used.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	CaBundle *string                                                    `json:"caBundle,omitempty"`
 
 	// `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.  If the webhook
 	// is running within the cluster, then you should use `service`.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_admissionregistration_v1beta1_ServiceReference.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_admissionregistration_v1beta1_ServiceReference.go
 	Service  *Io_k8s_api_admissionregistration_v1beta1_ServiceReference `json:"service,omitempty"`
 
 	// `url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or
@@ -29,6 +29,6 @@ type Io_k8s_api_admissionregistration_v1beta1_WebhookClientConfig struct {
 	// present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for
 	// example, a cluster identifier.  Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments
 	// ("#...") and query parameters ("?...") are not allowed, either.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Url      *string                                                    `json:"url,omitempty"`
 }

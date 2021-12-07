@@ -3,14 +3,14 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_PriorityLevelConfiguration.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_PriorityLevelConfiguration.go
 
 
 // PriorityLevelConfigurationSpec specifies the configuration of a priority level.
 type Io_k8s_api_flowcontrol_v1beta1_PriorityLevelConfigurationSpec struct {
 	// `limited` specifies how requests are handled for a Limited priority level. This field must be non-empty if and only if
 	// `type` is `"Limited"`.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_LimitedPriorityLevelConfiguration.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_LimitedPriorityLevelConfiguration.go
 	Limited *Io_k8s_api_flowcontrol_v1beta1_LimitedPriorityLevelConfiguration `json:"limited,omitempty"`
 
 	// `type` indicates whether this priority level is subject to limitation on request execution.  A value of `"Exempt"` means
@@ -18,6 +18,6 @@ type Io_k8s_api_flowcontrol_v1beta1_PriorityLevelConfigurationSpec struct {
 	// capacity made available to other priority levels.  A value of `"Limited"` means that (a) requests of this priority level
 	// _are_ subject to limits and (b) some of the server's limited capacity is made available exclusively to this priority
 	// level. Required.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Type    *string                                                           `json:"type"`
 }

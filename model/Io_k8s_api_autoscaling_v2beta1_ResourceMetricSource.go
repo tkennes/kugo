@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_autoscaling_v2beta1_MetricSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_autoscaling_v2beta1_MetricSpec.go
 
 
 // ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and
@@ -12,16 +12,16 @@ package kugo_model
 // of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
 type Io_k8s_api_autoscaling_v2beta1_ResourceMetricSource struct {
 	// name is the name of the resource in question.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Name                     *string                                        `json:"name"`
 
 	// targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented
 	// as a percentage of the requested value of the resource for the pods.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	TargetAverageUtilization *int                                           `json:"targetAverageUtilization,omitempty"`
 
 	// targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value
 	// (instead of as a percentage of the request), similar to the "pods" metric source type.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apimachinery_pkg_api_resource_Quantity.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apimachinery_pkg_api_resource_Quantity.go
 	TargetAverageValue       *Io_k8s_apimachinery_pkg_api_resource_Quantity `json:"targetAverageValue,omitempty"`
 }

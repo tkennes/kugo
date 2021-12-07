@@ -3,8 +3,8 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_EphemeralContainer.go
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Container.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Container.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_EphemeralContainer.go
 
 
 // Lifecycle describes actions that the management system should take in response to container lifecycle events. For the
@@ -14,7 +14,7 @@ type Io_k8s_api_core_v1_Lifecycle struct {
 	// PostStart is called immediately after a container is created. If the handler fails, the container is terminated and
 	// restarted according to its restart policy. Other management of the container blocks until the hook completes. More info:
 	// https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Handler.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Handler.go
 	PostStart *Io_k8s_api_core_v1_Handler `json:"postStart,omitempty"`
 
 	// PreStop is called immediately before a container is terminated due to an API request or management event such as
@@ -24,6 +24,6 @@ type Io_k8s_api_core_v1_Lifecycle struct {
 	// within the Pod's termination grace period. Other management of the container blocks until the hook completes or until
 	// the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-
 	// hooks/#container-hooks
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Handler.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Handler.go
 	PreStop   *Io_k8s_api_core_v1_Handler `json:"preStop,omitempty"`
 }

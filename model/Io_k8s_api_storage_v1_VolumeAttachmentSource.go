@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_storage_v1_VolumeAttachmentSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_storage_v1_VolumeAttachmentSpec.go
 
 
 // VolumeAttachmentSource represents a volume that should be attached. Right now only PersistenVolumes can be attached via
@@ -13,10 +13,10 @@ type Io_k8s_api_storage_v1_VolumeAttachmentSource struct {
 	// VolumeSource. This field is populated only for the CSIMigration feature. It contains translated fields from a pod's
 	// inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the
 	// CSIMigration feature.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_PersistentVolumeSpec.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_PersistentVolumeSpec.go
 	InlineVolumeSpec     *Io_k8s_api_core_v1_PersistentVolumeSpec `json:"inlineVolumeSpec,omitempty"`
 
 	// Name of the persistent volume to attach.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	PersistentVolumeName *string                                  `json:"persistentVolumeName,omitempty"`
 }

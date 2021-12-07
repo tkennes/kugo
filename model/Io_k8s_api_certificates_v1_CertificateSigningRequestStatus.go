@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_certificates_v1_CertificateSigningRequest.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_certificates_v1_CertificateSigningRequest.go
 
 
 // CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and
@@ -21,10 +21,10 @@ type Io_k8s_api_certificates_v1_CertificateSigningRequestStatus struct {
 	// certificates and presented in TLS handshakes.  The certificate is encoded in PEM format.  When serialized as JSON or
 	// YAML, the data is additionally base64-encoded, so it consists of:      base64(     -----BEGIN CERTIFICATE-----     ...
 	// -----END CERTIFICATE-----     )
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Certificate *string                                                         `json:"certificate,omitempty"`
 
 	// conditions applied to the request. Known conditions are "Approved", "Denied", and "Failed".
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_certificates_v1_CertificateSigningRequestCondition.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_certificates_v1_CertificateSigningRequestCondition.go
 	Conditions  []Io_k8s_api_certificates_v1_CertificateSigningRequestCondition `json:"conditions,omitempty"`
 }

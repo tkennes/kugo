@@ -41,15 +41,18 @@ func GetAndShowVolumes(namespace string) (res [][]string) {
 				object_name = *vol.Secret.SecretName
 			} else if vol.EmptyDir != nil {
 				type_ = "emptyDir"
-			} else if *vol.HostPath.Path != "" {
+			} else if vol.HostPath != nil {
 				type_ = "HostPath"
 				object_name = *vol.HostPath.Path
+			} else if vol.DownwardAPI != nil {
+				type_ = "DownwardAPI"
+				object_name = *vol.Name
 			} else {
 				fmt.Println("Found Unknown Storage Class")
-				fmt.Println("Volume:")
-				fmt.Println(vol)
 				fmt.Println("Pod:")
-				fmt.Println(pod)
+				ReflectOnStruct(name)
+				fmt.Println("Volume:")
+				ReflectOnStruct(vol)
 				break
 			}
 

@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_storage_v1beta1_CSIDriver.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_storage_v1beta1_CSIDriver.go
 
 
 // CSIDriverSpec is the specification of a CSIDriver.
@@ -14,13 +14,13 @@ type Io_k8s_api_storage_v1beta1_CSIDriverSpec struct {
 	// The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach
 	// operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach
 	// operation will be skipped. Otherwise the attach operation will be called.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	AttachRequired       *bool                                     `json:"attachRequired,omitempty"`
 
 	// Defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to
 	// the specific FSGroupPolicy values for additional details. This field is alpha-level, and is only honored by servers that
 	// enable the CSIVolumeFSGroupPolicy feature gate.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	FsGroupPolicy        *string                                   `json:"fsGroupPolicy,omitempty"`
 
 	// If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName,
@@ -36,14 +36,14 @@ type Io_k8s_api_storage_v1beta1_CSIDriverSpec struct {
 	// leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only
 	// support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a
 	// command line parameter of the driver.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	PodInfoOnMount       *bool                                     `json:"podInfoOnMount,omitempty"`
 
 	// RequiresRepublish indicates the CSI driver wants `NodePublishVolume` being periodically called to reflect any possible
 	// change in the mounted volume. This field defaults to false.  Note: After a successful initial NodePublishVolume call,
 	// subsequent calls to NodePublishVolume should only update the contents of the volume. New mount points will not be seen
 	// by a running container.  This is an alpha feature and only available when the CSIServiceAccountToken feature is enabled.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	RequiresRepublish    *bool                                     `json:"requiresRepublish,omitempty"`
 
 	// If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage
@@ -53,7 +53,7 @@ type Io_k8s_api_storage_v1beta1_CSIDriverSpec struct {
 	// be deployed with the field unset or false and it can be flipped later when storage capacity information has been
 	// published.  This is an alpha field and only available when the CSIStorageCapacity feature is enabled. The default is
 	// false.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	StorageCapacity      *bool                                     `json:"storageCapacity,omitempty"`
 
 	// TokenRequests indicates the CSI driver needs pods' service account tokens it is mounting volume for to do necessary
@@ -63,7 +63,7 @@ type Io_k8s_api_storage_v1beta1_CSIDriverSpec struct {
 	// TokenRequest should be different and at most one token is empty string. To receive a new token after expiry,
 	// RequiresRepublish can be used to trigger NodePublishVolume periodically.  This is an alpha feature and only available
 	// when the CSIServiceAccountToken feature is enabled.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_storage_v1beta1_TokenRequest.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_storage_v1beta1_TokenRequest.go
 	TokenRequests        []Io_k8s_api_storage_v1beta1_TokenRequest `json:"tokenRequests,omitempty"`
 
 	// VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is
@@ -73,6 +73,6 @@ type Io_k8s_api_storage_v1beta1_CSIDriverSpec struct {
 	// only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see
 	// https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and
 	// more modes may be added in the future.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	VolumeLifecycleModes []*string                                 `json:"volumeLifecycleModes,omitempty"`
 }

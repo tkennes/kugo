@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_NetworkPolicy.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_networking_v1_NetworkPolicy.go
 
 
 // NetworkPolicySpec provides the specification of a NetworkPolicy
@@ -13,7 +13,7 @@ type Io_k8s_api_networking_v1_NetworkPolicySpec struct {
 	// across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this
 	// NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by
 	// default). This field is beta-level in 1.8
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_NetworkPolicyEgressRule.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_networking_v1_NetworkPolicyEgressRule.go
 	Egress      []Io_k8s_api_networking_v1_NetworkPolicyEgressRule  `json:"egress,omitempty"`
 
 	// List of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies
@@ -21,14 +21,14 @@ type Io_k8s_api_networking_v1_NetworkPolicySpec struct {
 	// OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches
 	// the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the
 	// pods it selects are isolated by default)
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_NetworkPolicyIngressRule.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_networking_v1_NetworkPolicyIngressRule.go
 	Ingress     []Io_k8s_api_networking_v1_NetworkPolicyIngressRule `json:"ingress,omitempty"`
 
 	// Selects the pods to which this NetworkPolicy object applies. The array of ingress rules is applied to any pods selected
 	// by this field. Multiple network policies can select the same set of pods. In this case, the ingress rules for each are
 	// combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector
 	// matches all pods in this namespace.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector.go
 	PodSelector Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector  `json:"podSelector"`
 
 	// List of rule types that the NetworkPolicy relates to. Valid options are "Ingress", "Egress", or "Ingress,Egress". If
@@ -38,6 +38,6 @@ type Io_k8s_api_networking_v1_NetworkPolicySpec struct {
 	// "Egress" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a
 	// policyTypes value that include "Egress" (since such a policy would not include an Egress section and would otherwise
 	// default to just [ "Ingress" ]). This field is beta-level in 1.8
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	PolicyTypes []*string                                           `json:"policyTypes,omitempty"`
 }

@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Service.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Service.go
 
 
 // ServiceSpec describes the attributes that a user creates on a service.
@@ -13,7 +13,7 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// allocateLoadBalancerNodePorts may only be set for services with type LoadBalancer and will be cleared if the type is
 	// changed to any other type. This field is alpha-level and is only honored by servers that enable the
 	// ServiceLBNodePortControl feature.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	AllocateLoadBalancerNodePorts *bool                                     `json:"allocateLoadBalancerNodePorts,omitempty"`
 
 	// clusterIP is the IP address of the service and is usually assigned randomly. If an address is specified manually, is in-
@@ -26,7 +26,7 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when
 	// updating a Service to type ExternalName. More info: https://kubernetes.io/docs/concepts/services-
 	// networking/service/#virtual-ips-and-service-proxies
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	ClusterIP                     *string                                   `json:"clusterIP,omitempty"`
 
 	// ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is
@@ -44,26 +44,26 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// stack IPs, in either order).  These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and
 	// ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-
 	// networking/service/#virtual-ips-and-service-proxies
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	ClusterIPs                    []*string                                 `json:"clusterIPs,omitempty"`
 
 	// externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These
 	// IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A
 	// common example is external load-balancers that are not part of the Kubernetes system.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	ExternalIPs                   []*string                                 `json:"externalIPs,omitempty"`
 
 	// externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS
 	// CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname
 	// (https://tools.ietf.org/html/rfc1123) and requires Type to be
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	ExternalName                  *string                                   `json:"externalName,omitempty"`
 
 	// externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints.
 	// "Local" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks
 	// potentially imbalanced traffic spreading. "Cluster" obscures the client source IP and may cause a second hop to another
 	// node, but should have good overall load-spreading.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	ExternalTrafficPolicy         *string                                   `json:"externalTrafficPolicy,omitempty"`
 
 	// healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to
@@ -72,7 +72,7 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// this port to determine if a given node holds endpoints for this service or not.  If this field is specified when
 	// creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no
 	// longer need it (e.g. changing type).
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	HealthCheckNodePort           *int                                      `json:"healthCheckNodePort,omitempty"`
 
 	// IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service, and is gated by the "IPv6DualStack"
@@ -84,7 +84,7 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// to "headless" services.  This field will be wiped when updating a Service to type ExternalName.  This field may hold a
 	// maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the
 	// clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	IpFamilies                    []*string                                 `json:"ipFamilies,omitempty"`
 
 	// IPFamilyPolicy represents the dual-stack-ness requested or required by this Service, and is gated by the "IPv6DualStack"
@@ -93,24 +93,24 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// single-stack clusters), or "RequireDualStack" (two IP families on dual-stack configured clusters, otherwise fail). The
 	// ipFamilies and clusterIPs fields depend on the value of this field.  This field will be wiped when updating a service to
 	// type ExternalName.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	IpFamilyPolicy                *string                                   `json:"ipFamilyPolicy,omitempty"`
 
 	// Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This
 	// feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is
 	// created. This field will be ignored if the cloud-provider does not support the feature.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	LoadBalancerIP                *string                                   `json:"loadBalancerIP,omitempty"`
 
 	// If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be
 	// restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature."
 	// More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	LoadBalancerSourceRanges      []*string                                 `json:"loadBalancerSourceRanges,omitempty"`
 
 	// The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-
 	// networking/service/#virtual-ips-and-service-proxies
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_ServicePort.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_ServicePort.go
 	Ports                         []Io_k8s_api_core_v1_ServicePort          `json:"ports,omitempty"`
 
 	// publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any
@@ -119,24 +119,24 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// Endpoints and EndpointSlice resources for Services interpret this to mean that all endpoints are considered "ready" even
 	// if the Pods themselves are not. Agents which consume only Kubernetes generated endpoints through the Endpoints or
 	// EndpointSlice resources can safely assume this behavior.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	PublishNotReadyAddresses      *bool                                     `json:"publishNotReadyAddresses,omitempty"`
 
 	// Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is
 	// assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types
 	// ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info:
 	// https://kubernetes.io/docs/concepts/services-networking/service/
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/interface{}.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/interface{}.go
 	Selector                      *interface{}                              `json:"selector,omitempty"`
 
 	// Supports "ClientIP" and "None". Used to maintain session affinity. Enable client IP based session affinity. Must be
 	// ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-
 	// ips-and-service-proxies
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	SessionAffinity               *string                                   `json:"sessionAffinity,omitempty"`
 
 	// sessionAffinityConfig contains the configurations of session affinity.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_SessionAffinityConfig.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_SessionAffinityConfig.go
 	SessionAffinityConfig         *Io_k8s_api_core_v1_SessionAffinityConfig `json:"sessionAffinityConfig,omitempty"`
 
 	// topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially
@@ -147,7 +147,7 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// mean "any topology". This catch-all value, if used, only makes sense as the last value in the list. If this is not
 	// specified or empty, no topology constraints will be applied. This field is alpha-level and is only honored by servers
 	// that enable the ServiceTopology feature.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	TopologyKeys                  []*string                                 `json:"topologyKeys,omitempty"`
 
 	// type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort,
@@ -159,6 +159,6 @@ type Io_k8s_api_core_v1_ServiceSpec struct {
 	// cloud) which routes to the same endpoints as the clusterIP. "ExternalName" aliases this service to the specified
 	// externalName. Several other fields do not apply to ExternalName services. More info:
 	// https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Type                          *string                                   `json:"type,omitempty"`
 }

@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_ManagedFieldsEntry.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_ManagedFieldsEntry.go
 
 
 // FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.  Each key is either a '.' representing

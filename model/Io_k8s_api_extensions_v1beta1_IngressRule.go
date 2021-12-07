@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_extensions_v1beta1_IngressSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_extensions_v1beta1_IngressSpec.go
 
 
 // IngressRule represents the rules mapping the paths under a specified host to the related backend services. Incoming
@@ -21,9 +21,9 @@ type Io_k8s_api_extensions_v1beta1_IngressRule struct {
 	// against the Host field in the following way: 1. If Host is precise, the request matches this rule if the http host
 	// header is equal to Host. 2. If Host is a wildcard, then the request matches this rule if the http host header is to
 	// equal to the suffix (removing the first label) of the wildcard rule.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Host *string                                             `json:"host,omitempty"`
 
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_extensions_v1beta1_HTTPIngressRuleValue.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_extensions_v1beta1_HTTPIngressRuleValue.go
 	Http *Io_k8s_api_extensions_v1beta1_HTTPIngressRuleValue `json:"http,omitempty"`
 }

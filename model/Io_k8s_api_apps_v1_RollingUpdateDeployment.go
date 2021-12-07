@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_apps_v1_DeploymentStrategy.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_apps_v1_DeploymentStrategy.go
 
 
 // Spec to control the desired behavior of rolling update.
@@ -14,7 +14,7 @@ type Io_k8s_api_apps_v1_RollingUpdateDeployment struct {
 	// immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired
 	// pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods
 	// running at any time during the update is at most 130% of desired pods.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	MaxSurge       *int `json:"maxSurge,omitempty"`
 
 	// The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a
@@ -23,6 +23,6 @@ type Io_k8s_api_apps_v1_RollingUpdateDeployment struct {
 	// desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down
 	// further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during
 	// the update is at least 70% of desired pods.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	MaxUnavailable *int `json:"maxUnavailable,omitempty"`
 }

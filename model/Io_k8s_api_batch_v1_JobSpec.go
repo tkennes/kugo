@@ -3,27 +3,27 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_batch_v1_Job.go
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_batch_v2alpha1_JobTemplateSpec.go
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_batch_v1beta1_JobTemplateSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_batch_v2alpha1_JobTemplateSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_batch_v1_Job.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_batch_v1beta1_JobTemplateSpec.go
 
 
 // JobSpec describes how the job execution will look like.
 type Io_k8s_api_batch_v1_JobSpec struct {
 	// Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to
 	// terminate it; value must be positive integer
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	ActiveDeadlineSeconds   *int                                                `json:"activeDeadlineSeconds,omitempty"`
 
 	// Specifies the number of retries before marking this job failed. Defaults to 6
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	BackoffLimit            *int                                                `json:"backoffLimit,omitempty"`
 
 	// Specifies the desired number of successfully finished pods the job should be run with.  Setting to nil means that the
 	// success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1
 	// means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info:
 	// https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	Completions             *int                                                `json:"completions,omitempty"`
 
 	// manualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain
@@ -32,24 +32,24 @@ type Io_k8s_api_batch_v1_JobSpec struct {
 	// unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in
 	// jobs that were created with the old `extensions/v1beta1` API. More info:
 	// https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	ManualSelector          *bool                                               `json:"manualSelector,omitempty"`
 
 	// Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in
 	// steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e.
 	// when the work left to do is less than max parallelism. More info:
 	// https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	Parallelism             *int                                                `json:"parallelism,omitempty"`
 
 	// A label query over pods that should match the pod count. Normally, the system sets this field for you. More info:
 	// https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector.go
 	Selector                *Io_k8s_apimachinery_pkg_apis_meta_v1_LabelSelector `json:"selector,omitempty"`
 
 	// Describes the pod that will be created when executing a job. More info:
 	// https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_PodTemplateSpec.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_PodTemplateSpec.go
 	Template                Io_k8s_api_core_v1_PodTemplateSpec                  `json:"template"`
 
 	// ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this
@@ -57,6 +57,6 @@ type Io_k8s_api_batch_v1_JobSpec struct {
 	// is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be
 	// automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it
 	// finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	TtlSecondsAfterFinished *int                                                `json:"ttlSecondsAfterFinished,omitempty"`
 }

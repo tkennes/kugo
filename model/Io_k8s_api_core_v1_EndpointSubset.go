@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 2
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Endpoints.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Endpoints.go
 
 
 // EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian
@@ -13,15 +13,15 @@ package kugo_model
 type Io_k8s_api_core_v1_EndpointSubset struct {
 	// IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load
 	// balancers and clients to utilize.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_EndpointAddress.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_EndpointAddress.go
 	Addresses         []Io_k8s_api_core_v1_EndpointAddress `json:"addresses,omitempty"`
 
 	// IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished
 	// starting, have recently failed a readiness check, or have recently failed a liveness check.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_EndpointAddress.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_EndpointAddress.go
 	NotReadyAddresses []Io_k8s_api_core_v1_EndpointAddress `json:"notReadyAddresses,omitempty"`
 
 	// Port numbers available on the related IP addresses.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_EndpointPort.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_EndpointPort.go
 	Ports             []Io_k8s_api_core_v1_EndpointPort    `json:"ports,omitempty"`
 }

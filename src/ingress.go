@@ -41,9 +41,10 @@ func GetAndShowIngress(namespace string) (res [][]string) {
 			fmt.Println(host)
 			for _, path := range rule.Http.Paths {
 				if path.Backend.Service != nil {
-					if path.Backend.Service.Port != nil && path.Backend.Service.Name != nil {
+					if path.Backend.Service.Port != nil && path.Backend.Service.Name != nil && path.Path != nil {
 						port := strconv.Itoa(*path.Backend.Service.Port.Number)
 						svc_name := firstN(*path.Backend.Service.Name, 32)
+						fmt.Println(path.Path)
 						res = append(res,
 							[]string{metadata_name,
 								metadata_namespace,

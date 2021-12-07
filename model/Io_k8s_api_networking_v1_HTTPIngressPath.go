@@ -3,19 +3,19 @@ package kugo_model
 
 // Tree Depth: 5
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_HTTPIngressRuleValue.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_networking_v1_HTTPIngressRuleValue.go
 
 
 // HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.
 type Io_k8s_api_networking_v1_HTTPIngressPath struct {
 	// Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_networking_v1_IngressBackend.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_networking_v1_IngressBackend.go
 	Backend  Io_k8s_api_networking_v1_IngressBackend `json:"backend"`
 
 	// Path is matched against the path of an incoming request. Currently it can contain characters disallowed from the
 	// conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. When unspecified, all paths from
 	// incoming requests are matched.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Path     *string                                 `json:"path,omitempty"`
 
 	// PathType determines the interpretation of the Path matching. PathType can be one of the following values: * Exact:
@@ -26,6 +26,6 @@ type Io_k8s_api_networking_v1_HTTPIngressPath struct {
 	// /foo/bar/baz, but does not match /foo/barbaz). * ImplementationSpecific: Interpretation of the Path matching is up to
 	// the IngressClass. Implementations can treat this as a separate PathType   or treat it identically to Prefix or Exact
 	// path types. Implementations are required to support all path types.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	PathType *string                                 `json:"pathType,omitempty"`
 }

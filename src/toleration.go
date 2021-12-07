@@ -17,6 +17,7 @@ func GetAndShowTolerations(namespace string) (res [][]string) {
 		for _, tol := range toleration.Spec.Tolerations {
 			var seconds string = ""
 			var effect string = ""
+			var key string = ""
 			var value string = ""
 			var operator string = ""
 			if tol.TolerationSeconds != nil {
@@ -31,11 +32,14 @@ func GetAndShowTolerations(namespace string) (res [][]string) {
 			if tol.Operator != nil {
 				operator = *tol.Operator
 			}
+			if tol.Key != nil {
+				key = *tol.Key
+			}
 			res = append(res,
 				[]string{name,
 					namespace,
 					effect,
-					*tol.Key,
+					key,
 					value,
 					operator,
 					seconds})

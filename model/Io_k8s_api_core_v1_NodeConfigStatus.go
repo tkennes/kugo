@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_NodeStatus.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_NodeStatus.go
 
 
 // NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.
@@ -11,7 +11,7 @@ type Io_k8s_api_core_v1_NodeConfigStatus struct {
 	// Active reports the checkpointed config the node is actively using. Active will represent either the current version of
 	// the Assigned config, or the current LastKnownGood config, depending on whether attempting to use the Assigned config
 	// results in an error.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
 	Active        *Io_k8s_api_core_v1_NodeConfigSource `json:"active,omitempty"`
 
 	// Assigned reports the checkpointed config the node will try to use. When Node.Spec.ConfigSource is updated, the node
@@ -19,7 +19,7 @@ type Io_k8s_api_core_v1_NodeConfigStatus struct {
 	// to this record to choose its config checkpoint, and reports this record in Assigned. Assigned only updates in the status
 	// after the record has been checkpointed to disk. When the Kubelet is restarted, it tries to make the Assigned config the
 	// Active config by loading and validating the checkpointed payload identified by Assigned.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
 	Assigned      *Io_k8s_api_core_v1_NodeConfigSource `json:"assigned,omitempty"`
 
 	// Error describes any problems reconciling the Spec.ConfigSource to the Active config. Errors may occur, for example,
@@ -31,7 +31,7 @@ type Io_k8s_api_core_v1_NodeConfigStatus struct {
 	// the config assigned in Spec.ConfigSource. You can find additional information for debugging by searching the error
 	// message in the Kubelet log. Error is a human-readable description of the error state; machines can check whether or not
 	// Error is empty, but should not rely on the stability of the Error text across Kubelet versions.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Error         *string                              `json:"error,omitempty"`
 
 	// LastKnownGood reports the checkpointed config the node will fall back to when it encounters an error attempting to use
@@ -41,6 +41,6 @@ type Io_k8s_api_core_v1_NodeConfigStatus struct {
 	// Note that if Spec.ConfigSource is reset to nil (use local defaults), the LastKnownGood is also immediately reset to nil,
 	// because the local default config is always assumed good. You should not make assumptions about the node's method of
 	// determining config stability and correctness, as this may change or become configurable in the future.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_NodeConfigSource.go
 	LastKnownGood *Io_k8s_api_core_v1_NodeConfigSource `json:"lastKnownGood,omitempty"`
 }

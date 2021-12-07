@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Volume.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Volume.go
 
 
 // DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership
@@ -14,10 +14,10 @@ type Io_k8s_api_core_v1_DownwardAPIVolumeSource struct {
 	// octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are
 	// not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and
 	// the result can be other mode bits set.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	DefaultMode *int                                       `json:"defaultMode,omitempty"`
 
 	// Items is a list of downward API volume file
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_DownwardAPIVolumeFile.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_DownwardAPIVolumeFile.go
 	Items       []Io_k8s_api_core_v1_DownwardAPIVolumeFile `json:"items,omitempty"`
 }

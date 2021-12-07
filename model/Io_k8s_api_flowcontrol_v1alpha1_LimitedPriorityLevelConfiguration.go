@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_PriorityLevelConfigurationSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_PriorityLevelConfigurationSpec.go
 
 
 // LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits. It addresses two issues:
@@ -15,10 +15,10 @@ type Io_k8s_api_flowcontrol_v1alpha1_LimitedPriorityLevelConfiguration struct {
 	// This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for
 	// each such priority level:              ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )  bigger numbers
 	// of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	AssuredConcurrencyShares *int                                           `json:"assuredConcurrencyShares,omitempty"`
 
 	// `limitResponse` indicates what to do with requests that can not be executed right now
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_LimitResponse.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1alpha1_LimitResponse.go
 	LimitResponse            *Io_k8s_api_flowcontrol_v1alpha1_LimitResponse `json:"limitResponse,omitempty"`
 }

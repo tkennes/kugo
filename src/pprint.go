@@ -2,7 +2,9 @@ package kugo_src
 
 import (
 	"os"
+	"fmt"
 	"log"
+	"reflect"
 
 	tablewriter "github.com/olekukonko/tablewriter"
 	yaml "gopkg.in/yaml.v2"
@@ -32,4 +34,13 @@ func YAML(obj interface{}) {
 	// Log without datetime prefix
 	log.SetFlags(log.Flags() &^ (log.Ldate | log.Ltime))
 	log.Printf(string(d))
+}
+
+func ReflectOnStruct(s interface{}) {
+	v := reflect.ValueOf(s)
+    typeOfS := v.Type()
+
+    for i := 0; i< v.NumField(); i++ {
+        fmt.Printf("Field: %s\tValue: %v\n", typeOfS.Field(i).Name, v.Field(i).Interface())
+    }
 }

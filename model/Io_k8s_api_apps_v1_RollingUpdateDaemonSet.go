@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_apps_v1_DaemonSetUpdateStrategy.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_apps_v1_DaemonSetUpdateStrategy.go
 
 
 // Spec to control the desired behavior of daemon set rolling update.
@@ -15,6 +15,6 @@ type Io_k8s_api_apps_v1_RollingUpdateDaemonSet struct {
 	// stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then
 	// brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet
 	// pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	MaxUnavailable *int `json:"maxUnavailable,omitempty"`
 }

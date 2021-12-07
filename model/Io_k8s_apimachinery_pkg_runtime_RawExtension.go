@@ -3,8 +3,8 @@ package kugo_model
 
 // Tree Depth: 1
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_WatchEvent.go
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_apps_v1_ControllerRevision.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_apps_v1_ControllerRevision.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apimachinery_pkg_apis_meta_v1_WatchEvent.go
 
 
 // RawExtension is used to hold extensions in external versions.  To use this, make a field which has RawExtension as its

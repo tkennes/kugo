@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 4
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_Volume.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_Volume.go
 
 
 // Adapts a ConfigMap into a volume.  The contents of the target ConfigMap's Data field will be presented in a volume as
@@ -14,7 +14,7 @@ type Io_k8s_api_core_v1_ConfigMapVolumeSource struct {
 	// a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode
 	// bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with
 	// other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/int.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/int.go
 	DefaultMode *int                           `json:"defaultMode,omitempty"`
 
 	// If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a
@@ -22,14 +22,14 @@ type Io_k8s_api_core_v1_ConfigMapVolumeSource struct {
 	// paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume
 	// setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with
 	// '..'.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_core_v1_KeyToPath.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_core_v1_KeyToPath.go
 	Items       []Io_k8s_api_core_v1_KeyToPath `json:"items,omitempty"`
 
 	// Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/string.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/string.go
 	Name        *string                        `json:"name,omitempty"`
 
 	// Specify whether the ConfigMap or its keys must be defined
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/bool.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/bool.go
 	Optional    *bool                          `json:"optional,omitempty"`
 }

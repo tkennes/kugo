@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 3
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_FlowSchemaSpec.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_FlowSchemaSpec.go
 
 
 // PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject
@@ -13,17 +13,17 @@ package kugo_model
 type Io_k8s_api_flowcontrol_v1beta1_PolicyRulesWithSubjects struct {
 	// `nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the
 	// target non-resource URL.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_NonResourcePolicyRule.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_NonResourcePolicyRule.go
 	NonResourceRules []Io_k8s_api_flowcontrol_v1beta1_NonResourcePolicyRule `json:"nonResourceRules,omitempty"`
 
 	// `resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target
 	// resource. At least one of `resourceRules` and `nonResourceRules` has to be non-empty.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_ResourcePolicyRule.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_ResourcePolicyRule.go
 	ResourceRules    []Io_k8s_api_flowcontrol_v1beta1_ResourcePolicyRule    `json:"resourceRules,omitempty"`
 
 	// subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one
 	// member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches
 	// every request. Required.
-	// See: file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_api_flowcontrol_v1beta1_Subject.go
+	// See: file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_api_flowcontrol_v1beta1_Subject.go
 	Subjects         []Io_k8s_api_flowcontrol_v1beta1_Subject               `json:"subjects"`
 }

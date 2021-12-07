@@ -3,7 +3,7 @@ package kugo_model
 
 // Tree Depth: 5
 // REFERENCES:
-// - file:///Users/tomkennes/Clients/Volksbank/code/custom/kugo/model/Io_k8s_apiextensions__apiserver_pkg_apis_apiextensions_v1_CustomResourceSubresources.go
+// - file:///Users/tomkennes/Documents/Clients/_generic/kugo/model/Io_k8s_apiextensions__apiserver_pkg_apis_apiextensions_v1_CustomResourceSubresources.go
 
 
 // CustomResourceSubresourceStatus defines how to serve the status subresource for CustomResources. Status is represented
